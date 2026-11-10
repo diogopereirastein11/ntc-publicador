@@ -1,0 +1,8 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Autorização · NTC Publicador</title>
+<style>body{margin:0;background:#0c0e12;color:#e9e6df;font:16px/1.6 system-ui,sans-serif}main{max-width:640px;margin:0 auto;padding:32px 16px}h1 span{color:#ff6b1a}code{display:block;word-break:break-all;background:#1a1d24;padding:12px;border-radius:8px;margin:12px 0}button{background:#ff6b1a;color:#0c0e12;border:0;border-radius:8px;padding:12px 18px;font-weight:700;font-size:16px}</style></head><body><main>
+<h1>NTC <span>Publicador</span></h1>
+<div id="ok" hidden><p>Conta autorizada. Copie o código abaixo e cole no GitHub em <b>Actions → Autorizar TikTok → Run workflow</b> (vale por poucos minutos).</p><code id="c"></code><button onclick="navigator.clipboard.writeText(document.getElementById('c').textContent);this.textContent='Copiado!'">Copiar código</button></div>
+<div id="erro" hidden><p>A autorização não foi concluída: <span id="e"></span></p></div>
+<div id="nada"><p>Esta página recebe a autorização do TikTok. Volte ao painel para iniciar.</p></div>
+<script>const q=new URLSearchParams(location.search);if(q.get('code')){document.getElementById('nada').hidden=true;document.getElementById('ok').hidden=false;document.getElementById('c').textContent=q.get('code')}else if(q.get('error')){document.getElementById('nada').hidden=true;document.getElementById('erro').hidden=false;document.getElementById('e').textContent=q.get('error_description')||q.get('error')}</script>
+</main></body></html>
